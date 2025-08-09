@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Light mode base */
+body {
+  @apply bg-white;
+}
+
+/* Dark mode base */
+.dark body {
+  @apply bg-gray-900;
+}
+
+/* GLOBAL TEXT COLOR FIX */
+html {
+  @apply text-black;
+}
+
+.dark html {
+  @apply text-white;
+}
