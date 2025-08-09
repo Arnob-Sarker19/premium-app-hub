@@ -25,13 +25,16 @@ export default function Navbar({ user }) {
       if (user) {
         try {
           const userDoc = await getDoc(doc(db, "users", user.uid));
-          if (userDoc.exists()) {
+          if (userDoc.exists() && userDoc.data().username) {
             setUsername(userDoc.data().username);
+          } else if (user.displayName) {
+            setUsername(user.displayName);
           } else {
-            setUsername(""); // fallback
+            setUsername(user.email);
           }
         } catch (err) {
           console.error("Error fetching username:", err);
+          setUsername(user.email);
         }
       }
     };
@@ -59,14 +62,26 @@ export default function Navbar({ user }) {
     <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center">
       {user && (
         <>
-          <Link to="/" onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400">
+          <Link
+            to="/"
+            onClick={() => setIsMenuOpen(false)}
+            className="hover:text-indigo-400"
+          >
             Home
           </Link>
-          <Link to="/request-app" onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400">
+          <Link
+            to="/request-app"
+            onClick={() => setIsMenuOpen(false)}
+            className="hover:text-indigo-400"
+          >
             Request App
           </Link>
           {user.email === "admin@arnob.com" && (
-            <Link to="/admin" onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400 font-semibold">
+            <Link
+              to="/admin"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-indigo-400 font-semibold"
+            >
               Admin Panel
             </Link>
           )}
@@ -79,7 +94,11 @@ export default function Navbar({ user }) {
         </>
       )}
       {!user && (
-        <Link to="/login" onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400 ">
+        <Link
+          to="/login"
+          onClick={() => setIsMenuOpen(false)}
+          className="hover:text-indigo-400 "
+        >
           Login
         </Link>
       )}
@@ -87,7 +106,7 @@ export default function Navbar({ user }) {
   );
 
   return (
-    <nav className="bg-blue-300 dark:bg-blue-300 text-blue-600 dark:text-pink-500 px-6 py-4 flex justify-between items-center shadow-md relative z-50">
+    <nav className="bg-yellow-100 dark:bg-yellow-100 text-blue-600 dark:text-pink-500 px-6 py-4 flex justify-between items-center shadow-md relative z-50">
       <div className="flex items-center gap-4">
         <img className="w-7" src={logo} alt="Premium Apps Hub" />
         <Link to="/" className="text-2xl font-bold hover:text-indigo-400">

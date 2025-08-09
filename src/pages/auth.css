@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+.auth-page {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: hsla(210, 89%, 37%, 0.597);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.auth-page .wrapper {
+  position: relative;
+  width: 750px;
+  max-width: 100%;
+  height: 450px;
+  background: #f8d1e7;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00000033;
+  overflow: hidden;
+
+  display: flex;
+  /* changed to flex to place forms side by side */
+}
+
+/* Form boxes side by side */
+.auth-page .form-box {
+  flex: 1 1 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  position: relative;
+  transition: transform 0.7s ease, opacity 0.7s ease, filter 0.7s ease;
+}
+
+/* Login box on left */
+.auth-page .form-box.login {
+  left: 0;
+}
+
+/* Signup box on right */
+.auth-page .form-box.register {
+  right: 0;
+  border-left: 1px solid #ddd;
+}
+
+/* Titles */
+.auth-page .form-box h2 {
+  margin-bottom: 10px;
+  font-size: 32px;
+  color: #000;
+  text-align: center;
+  position: relative;
+}
+
+.auth-page .form-box h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 4px;
+  background: #000;
+}
+
+/* Input boxes */
+.auth-page .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 25px 0;
+}
+
+.auth-page .input-box input[type="text"],
+.auth-page .input-box input[type="email"],
+.auth-page .input-box input[type="password"] {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #000;
+  transition: 0.5s;
+  padding-right: 23px;
+  box-sizing: border-box;
+}
+
+.auth-page .input-box input:focus,
+.auth-page .input-box input:valid {
+  border-bottom-color: #1177ee;
+}
+
+.auth-page .input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #000;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.auth-page .input-box input:focus ~ label,
+.auth-page .input-box input:valid ~ label {
+  top: -5px;
+  color: #1177ee;
+}
+
+.auth-page .input-box i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.auth-page .input-box input:focus ~ i,
+.auth-page .input-box input:valid ~ i {
+  color: #1177ee;
+}
+
+/* Remember me checkbox */
+.auth-page .remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: -15px;
+  margin-bottom: 25px;
+  user-select: none;
+}
+
+.auth-page .remember-me input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.auth-page form button {
+  width: 100%;
+  height: 45px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+
+.auth-page form button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Google button */
+.auth-page form button.google-btn {
+  background-color: #4285F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  border-radius: 40px;
+  font-size: 16px;
+}
+
+/* Links */
+.auth-page .linkTxt {
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.auth-page .linkTxt a {
+  color: blue;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Info text box */
+.auth-page .info-text {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 40px 40px;
+  background: #1177ee;
+  color: #d7e1d7;
+  border-radius: 0 10px 10px 0;
+  user-select: none;
+}
+
+.auth-page .info-text.login {
+  text-align: right;
+}
+
+/* Responsive */
+
+/* On mobile: stack vertically */
+@media (max-width: 850px) {
+  .auth-page .wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .auth-page .form-box,
+  .auth-page .info-text {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 30px 25px;
+    border-radius: 10px;
+  }
+
+  .auth-page .form-box.register {
+    border-left: none;
+    border-top: 1px solid #ddd;
+  }
+
+  .auth-page .info-text {
+    border-radius: 10px;
+    text-align: center !important;
+    margin-top: 20px;
+  }
+}

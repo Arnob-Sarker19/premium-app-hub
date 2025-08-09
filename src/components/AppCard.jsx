@@ -117,6 +117,7 @@ export default function AppCard({ app }) {
 
       {/* Rating System */}
       <div className="flex items-center mb-4">
+        <span className="text-gray-600 dark:text-gray-300 font-semibold text-xs">Rate my app:</span>
         {[1, 2, 3, 4, 5].map((i) => (
           <Star
             key={i}
@@ -131,7 +132,7 @@ export default function AppCard({ app }) {
         {userRating && (
           <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">
             You rated: {userRating}⭐
-          </span>
+          </span> 
         )}
       </div>
 

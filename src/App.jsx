@@ -9,23 +9,20 @@ import RequestApp from "./pages/RequestApp";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import Loader from "./components/Loader";
+import Footer from "./components/Footer";
 
-const ADMIN_EMAIL = "admin@arnob.com"; // Replace with your actual admin email
+const ADMIN_EMAIL = "admin@arnob.com";
 
 function App() {
   const [user, loading] = useAuthState(auth);
 
-  if (loading) {
-    return <Loader />; // ✅ Show loading animation while auth state is loading
-  }
+  if (loading) return <Loader />;
 
-  // ✅ Route for protected user pages
   const ProtectedRoute = ({ children }) => {
     if (!user) return <Navigate to="/login" replace />;
     return children;
   };
 
-  // ✅ Route for admin-only pages
   const AdminRoute = ({ children }) => {
     if (!user) return <Navigate to="/login" replace />;
     if (user.email !== ADMIN_EMAIL) return <Navigate to="/" replace />;
@@ -40,7 +37,9 @@ function App() {
           path="/"
           element={
             <ProtectedRoute>
-              <Home />
+              <div className="px-6 py-4 max-w-7xl mx-auto">
+                <Home />
+              </div>
             </ProtectedRoute>
           }
         />
@@ -48,7 +47,9 @@ function App() {
           path="/request-app"
           element={
             <ProtectedRoute>
-              <RequestApp />
+              <div className="px-6 py-4 max-w-7xl mx-auto">
+                <RequestApp />
+              </div>
             </ProtectedRoute>
           }
         />
@@ -56,13 +57,16 @@ function App() {
           path="/admin"
           element={
             <AdminRoute>
-              <Admin />
+              <div className="px-6 py-4 max-w-7xl mx-auto">
+                <Admin />
+              </div>
             </AdminRoute>
           }
         />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
       </Routes>
+      <Footer />
     </>
   );
 }

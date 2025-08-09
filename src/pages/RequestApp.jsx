@@ -82,9 +82,10 @@ export default function RequestApp() {
         <input
           type="email"
           name="userEmail"
-          placeholder="Your Email (optional)"
+          placeholder="Your Email"
           value={formData.userEmail}
           onChange={handleChange}
+          required
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
         />
         <button
@@ -95,6 +96,13 @@ export default function RequestApp() {
         </button>
         {success && <p className="text-green-600 text-center">✅ Request submitted!</p>}
       </form>
+      <p className="text-sm text-center mt-4">
+        Need help? Contact us at{" "}
+        <a href="https://webogram.org/a/#-1002835451084" className="text-blue-600 hover:underline">
+          support@premium-apps(help)telegram.com
+        </a>
+      </p>
     </div>
+    
   );
 }
