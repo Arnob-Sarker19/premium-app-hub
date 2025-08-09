@@ -72,14 +72,14 @@ export default function Navbar({ user }) {
           )}
           <button
             onClick={handleLogout}
-            className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm"
+            className="bg-green-400 hover:bg-red-700 px-3 py-1 rounded text-sm"
           >
             Logout
           </button>
         </>
       )}
       {!user && (
-        <Link to="/login" onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400">
+        <Link to="/login" onClick={() => setIsMenuOpen(false)} className="hover:text-indigo-400 ">
           Login
         </Link>
       )}
