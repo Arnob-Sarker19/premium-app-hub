@@ -88,11 +88,7 @@ export default function Navbar({ user }) {
   return (
     <nav className="bg-blue-300 dark:bg-blue-300 text-blue-600 dark:text-pink-500 px-6 py-4 flex justify-between items-center shadow-md relative z-50">
       <div className="flex items-center gap-4">
-<<<<<<< HEAD
         <img className="w-7" src="./public/shortcut-script-app.png" alt="Premium Apps Hub" />
-=======
-        <img className="w-7" src="./public/shortcut-script-app.png" alt="logo" />
->>>>>>> d81804717613c2f0f23a312249a039f70af6b34a
         <Link to="/" className="text-2xl font-bold hover:text-indigo-400">
           Premium Apps Hub
         </Link>
