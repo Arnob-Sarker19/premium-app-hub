@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { doc, getDoc } from "firebase/firestore";
+import logo from "/shortcut-script-app.png"; // root of public folder
 
 export default function Navbar({ user }) {
   const navigate = useNavigate();
@@ -88,7 +89,7 @@ export default function Navbar({ user }) {
   return (
     <nav className="bg-blue-300 dark:bg-blue-300 text-blue-600 dark:text-pink-500 px-6 py-4 flex justify-between items-center shadow-md relative z-50">
       <div className="flex items-center gap-4">
-        <img className="w-7" src="./public/shortcut-script-app.png" alt="Premium Apps Hub" />
+        <img className="w-7" src={logo} alt="Premium Apps Hub" />
         <Link to="/" className="text-2xl font-bold hover:text-indigo-400">
           Premium Apps Hub
         </Link>
