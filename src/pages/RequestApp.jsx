@@ -94,11 +94,11 @@ export default function RequestApp() {
         >
           Submit Request
         </button>
-        {success && <p className="text-green-600 text-center">✅ Request submitted!</p>}
+        {success && <p className="text-green-600 text-center">✅ Request submit successful! Typically your app added in 30 minutes. Check our website after some time.</p>}
       </form>
       <p className="text-sm text-center mt-4">
         Need help? Contact us at{" "}
-        <a href="https://t.me/+D9rI9cYqu7xhZmU1" className="text-blue-600 hover:underline">
+        <a href="https://t.me/arnob_sarker20" className="text-blue-600 hover:underline">
           join-support@telegram.com
         </a>
       </p>
