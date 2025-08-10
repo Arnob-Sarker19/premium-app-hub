@@ -98,8 +98,8 @@ export default function RequestApp() {
       </form>
       <p className="text-sm text-center mt-4">
         Need help? Contact us at{" "}
-        <a href="https://webogram.org/a/#-1002835451084" className="text-blue-600 hover:underline">
-          support@premium-apps(help)telegram.com
+        <a href="https://t.me/+D9rI9cYqu7xhZmU1" className="text-blue-600 hover:underline">
+          join-support@telegram.com
         </a>
       </p>
     </div>

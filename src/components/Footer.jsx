@@ -28,7 +28,7 @@ export default function Footer() {
           </a>
           <a
             href="https://t.me/arnob_sarker20"
-            className="hover:text-indigo-500"
+            className="hover:text-red-500"
             aria-label="Telegram"
           >
             <i className="bx bxl-telegram text-4xl"></i>
